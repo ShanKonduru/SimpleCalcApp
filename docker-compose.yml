@@ -1,0 +1,41 @@
+version: '3'
+services:
+  add_microservice:
+    build:
+      context: .
+      dockerfile: api/Dockerfile_api
+    ports:
+      - "5001:5000"
+
+  subtract_microservice:
+    build:
+      context: .
+      dockerfile: api/Dockerfile_api
+    ports:
+      - "5002:5000"
+
+  multiply_microservice:
+    build:
+      context: .
+      dockerfile: api/Dockerfile_api
+    ports:
+      - "5003:5000"
+
+  divide_microservice:
+    build:
+      context: .
+      dockerfile: api/Dockerfile_api
+    ports:
+      - "5004:5000"
+
+  main_app:
+    build:
+      context: .
+      dockerfile: ux/Dockerfile_ux
+    ports:
+      - "8000:80"
+    depends_on:
+      - add_microservice
+      - subtract_microservice
+      - multiply_microservice
+      - divide_microservice

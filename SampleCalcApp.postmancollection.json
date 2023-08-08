@@ -1,0 +1,123 @@
+{
+    "info": {
+      "_postman_id": "47c5b14f-74c8-43ed-9d90-1e877b2a3eaf",
+      "name": "SimpleCalcApp",
+      "description": "Postman collection for testing Simple Calculator App APIs",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Addition",
+        "item": [
+          {
+            "name": "Add Two Numbers",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"num1\": 5, \"num2\": 10}"
+              },
+              "url": {
+                "raw": "http://localhost:5001/add",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5001",
+                "path": [
+                  "add"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Subtraction",
+        "item": [
+          {
+            "name": "Subtract Two Numbers",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"num1\": 15, \"num2\": 5}"
+              },
+              "url": {
+                "raw": "http://localhost:5002/subtract",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5002",
+                "path": [
+                  "subtract"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Multiplication",
+        "item": [
+          {
+            "name": "Multiply Two Numbers",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"num1\": 5, \"num2\": 10}"
+              },
+              "url": {
+                "raw": "http://localhost:5003/multiply",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5003",
+                "path": [
+                  "multiply"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Division",
+        "item": [
+          {
+            "name": "Divide Two Numbers",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"num1\": 50, \"num2\": 10}"
+              },
+              "url": {
+                "raw": "http://localhost:5004/divide",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5004",
+                "path": [
+                  "divide"
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
+  
