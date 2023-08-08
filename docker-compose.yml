@@ -2,36 +2,44 @@ version: '3'
 services:
   add_microservice:
     build:
-      context: .
-      dockerfile: api/Dockerfile_api
+      context: ./api
+      dockerfile: Dockerfile_api
     ports:
       - "5001:5000"
+    depends_on:
+      - db
 
   subtract_microservice:
     build:
-      context: .
-      dockerfile: api/Dockerfile_api
+      context: ./api
+      dockerfile: Dockerfile_api
     ports:
       - "5002:5000"
+    depends_on:
+      - db
 
   multiply_microservice:
     build:
-      context: .
-      dockerfile: api/Dockerfile_api
+      context: ./api
+      dockerfile: Dockerfile_api
     ports:
       - "5003:5000"
+    depends_on:
+      - db
 
   divide_microservice:
     build:
-      context: .
-      dockerfile: api/Dockerfile_api
+      context: ./api
+      dockerfile: Dockerfile_api
     ports:
       - "5004:5000"
+    depends_on:
+      - db
 
   main_app:
     build:
-      context: .
-      dockerfile: ux/Dockerfile_ux
+      context: ./ux
+      dockerfile: Dockerfile_ux
     ports:
       - "8000:80"
     depends_on:
@@ -39,3 +47,12 @@ services:
       - subtract_microservice
       - multiply_microservice
       - divide_microservice
+      - db
+
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+    command: python setup_database.py
