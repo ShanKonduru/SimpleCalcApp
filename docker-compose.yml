@@ -52,7 +52,6 @@ services:
   db:
     build:
       context: ./db
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_db
     volumes:
       - ./data:/app/data
-    command: python setup_database.py
