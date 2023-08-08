@@ -1,52 +1,39 @@
-version: '3'
+version: "3"
 services:
-  add_microservice:
+  api:
     build:
-      context: ./api
-      dockerfile: Dockerfile_api
+      context: ./api/add
+      dockerfile: Dockerfile
     ports:
-      - "5001:5001"
+      - "5000:5000"
     depends_on:
       - db
 
   subtract_microservice:
     build:
-      context: ./api
-      dockerfile: Dockerfile_api
+      context: ./api/subtract
+      dockerfile: Dockerfile
     ports:
-      - "5002:5002"
+      - "5001:5000"
     depends_on:
       - db
 
   multiply_microservice:
     build:
-      context: ./api
-      dockerfile: Dockerfile_api
+      context: ./api/multiply
+      dockerfile: Dockerfile
     ports:
-      - "5003:5003"
+      - "5002:5000"
     depends_on:
       - db
 
   divide_microservice:
     build:
-      context: ./api
-      dockerfile: Dockerfile_api
+      context: ./api/divide
+      dockerfile: Dockerfile
     ports:
-      - "5004:5004"
+      - "5003:5000"
     depends_on:
-      - db
-
-  main_app:
-    build:
-      context: ./ux
-      dockerfile: Dockerfile_ux
-    ports:
-      - "8000:80"
-    depends_on:
-      - add_microservice
-      - subtract_microservice
-      - multiply_microservice
-      - divide_microservice
       - db
 
   db:
@@ -55,3 +42,12 @@ services:
       dockerfile: Dockerfile_db
     volumes:
       - ./data:/app/data
+
+  ux:
+    build:
+      context: ./ux
+      dockerfile: Dockerfile_ux
+    ports:
+      - "80:80"
+
+# Add any other services you have here.

@@ -4,12 +4,13 @@ FROM python:3.9
 # Set the working directory
 WORKDIR /app
 
-# Install dependencies
-COPY db/requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+# Install any other dependencies if required
+# For example, if your project requires Flask:
+# COPY db/requirements.txt /app/
+# RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the database setup script
-COPY db/ /app/
+COPY . /app/
 
 # Expose the SQLite database file path as an environment variable
 ENV SQLITE_DB_PATH /app/calculator.db
