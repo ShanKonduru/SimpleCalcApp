@@ -5,7 +5,7 @@ services:
       context: ./api
       dockerfile: Dockerfile_api
     ports:
-      - "5001:5000"
+      - "5001:5001"
     depends_on:
       - db
 
@@ -14,7 +14,7 @@ services:
       context: ./api
       dockerfile: Dockerfile_api
     ports:
-      - "5002:5000"
+      - "5002:5002"
     depends_on:
       - db
 
@@ -23,7 +23,7 @@ services:
       context: ./api
       dockerfile: Dockerfile_api
     ports:
-      - "5003:5000"
+      - "5003:5003"
     depends_on:
       - db
 
@@ -32,7 +32,7 @@ services:
       context: ./api
       dockerfile: Dockerfile_api
     ports:
-      - "5004:5000"
+      - "5004:5004"
     depends_on:
       - db
 
